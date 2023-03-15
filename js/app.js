@@ -56,22 +56,21 @@ function onGalleryContainerClick(evt) {
 		refs.lightboxCaption.classList.add('lightbox__caption--active'); //????????????
 	});
 
-	updateCaptionTextContent(refs.lightboxImage.alt);
-
-	refs.lightbox.classList.add('is-open');
-
 	currentImageIndex = Number(imgRef.dataset.index);
 
+	updateCaptionTextContent(refs.lightboxImage.alt);
+	onModalOpen();
+}
+
+function onModalOpen() {
+	refs.lightbox.classList.add('is-open');
 	window.addEventListener('keydown', onEscapeKeypress);
 	window.addEventListener('keydown', onLeftArrowKeypress); //??????????
 	window.addEventListener('keydown', onRightArrowKeypress); //??????????
 }
 
-function onModalOpen() {}
-
 function onModalClose() {
 	refs.lightbox.classList.remove('is-open');
-
 	window.removeEventListener('keydown', onEscapeKeypress);
 	window.removeEventListener('keydown', onLeftArrowKeypress);
 	window.removeEventListener('keydown', onRightArrowKeypress);
